@@ -41,7 +41,7 @@ open class SSCustomTabBarViewController: UITabBarController {
     
     private var priviousSelectedIndex: Int = defaultIndexValue
     
-    override public func viewDidLoad() {
+    override open func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
