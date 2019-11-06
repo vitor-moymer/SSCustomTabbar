@@ -14,10 +14,10 @@ public class SSCustomTabBar: UITabBar {
     /// Fill color of back wave layer
     @IBInspectable var layerFillColor: UIColor {
         get {
-            return UIColor(cgColor: kLayerFillColor)
+            return kLayerFillColor
         }
         set{
-            kLayerFillColor = newValue.cgColor
+            kLayerFillColor = newValue
         }
     }
     
@@ -72,7 +72,7 @@ public class SSCustomTabBar: UITabBar {
         }
     }
     
-    private var kLayerFillColor: CGColor = UIColor.blue.cgColor
+    private var kLayerFillColor: UIColor = UIColor.blue
     private var displayLink: CADisplayLink!
     private let tabBarShapeLayer = CAShapeLayer()
     internal var minimalHeight: CGFloat = 30
@@ -179,7 +179,7 @@ extension SSCustomTabBar {
         
         tabBarShapeLayer.frame = CGRect(x: 0.0, y: 0, width: self.bounds.width, height: self.bounds.height)
         tabBarShapeLayer.actions = ["position" : NSNull(), "bounds" : NSNull(), "path" : NSNull()]
-        tabBarShapeLayer.fillColor = kLayerFillColor
+        tabBarShapeLayer.fillColor = kLayerFillColor.cgColor
         self.layer.insertSublayer(tabBarShapeLayer, at: 0)
         
         let width = UIScreen.main.bounds.width/CGFloat(self.items?.count ?? 0)

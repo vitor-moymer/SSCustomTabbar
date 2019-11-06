@@ -60,7 +60,6 @@ open class SSCustomTabBarViewController: UITabBarController {
                 self.setObserver()
             }
         }
-        changeTabBarHeight()
         self.applicationDidBecomeActive()
     }
     
