@@ -60,6 +60,7 @@ open class SSCustomTabBarViewController: UITabBarController {
                 self.setObserver()
             }
         }
+        changeTabBarHeight()
         self.applicationDidBecomeActive()
     }
     
@@ -97,13 +98,17 @@ open class SSCustomTabBarViewController: UITabBarController {
 // MARK: - set bar height
 extension SSCustomTabBarViewController {
     override public func viewWillLayoutSubviews() {
+       changeTabBarHeight()
+    }
+    
+    func changeTabBarHeight() {
         guard var height = kBarHeight else { return }
-        height += self.view.safeAreaInsets.bottom
-        var tabBarFrame = self.tabBar.frame
-        tabBarFrame.size.height = height
-        tabBarFrame.origin.y = UIScreen.main.bounds.height - height
-        self.tabBar.frame = tabBarFrame
-        self.tabBar.clipsToBounds = false
+               height += self.view.safeAreaInsets.bottom
+               var tabBarFrame = self.tabBar.frame
+               tabBarFrame.size.height = height
+               tabBarFrame.origin.y = UIScreen.main.bounds.height - height
+               self.tabBar.frame = tabBarFrame
+               self.tabBar.clipsToBounds = false
     }
 }
 
