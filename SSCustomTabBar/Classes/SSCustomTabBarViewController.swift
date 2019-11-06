@@ -63,7 +63,10 @@ open class SSCustomTabBarViewController: UITabBarController {
         self.applicationDidBecomeActive()
     }
     
-    
+    open override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        applicationDidBecomeActive()
+    }
     /// setObserver
     func setObserver() {
         NotificationCenter.default.addObserver(self,
