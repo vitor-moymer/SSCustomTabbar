@@ -12,7 +12,7 @@ import UIKit
 /// Default index value for priviousSelectedIndex
 private let defaultIndexValue = -1
 
-open public class SSCustomTabBarViewController: UITabBarController {
+open class SSCustomTabBarViewController: UITabBarController {
     
     
     /// Tabbar height
