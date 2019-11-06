@@ -142,7 +142,7 @@ public class SSCustomTabBar: UITabBar {
     /// - Parameter rect: rect of view
     override public func draw(_ rect: CGRect) {
         super.draw(rect)
-        self.setupTabBar()
+        //self.setupTabBar()
     }
     
 }
