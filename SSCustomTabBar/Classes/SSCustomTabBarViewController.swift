@@ -60,9 +60,14 @@ open class SSCustomTabBarViewController: UITabBarController {
                 self.setObserver()
             }
         }
-        self.applicationDidBecomeActive()
     }
-    
+    open override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        if let uSelf = self.tabBar as? SSCustomTabBar {
+            uSelf.willDesappear = true
+        }
+             
+    }
     open override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         applicationDidBecomeActive()

@@ -10,7 +10,7 @@ import UIKit
 
 public class SSCustomTabBar: UITabBar {
     
-    
+    var willDesappear = false
     /// Fill color of back wave layer
     @IBInspectable var layerFillColor: UIColor {
         get {
@@ -144,7 +144,6 @@ public class SSCustomTabBar: UITabBar {
         super.draw(rect)
         self.setupTabBar()
     }
-    
 }
 
 
@@ -152,6 +151,9 @@ public class SSCustomTabBar: UITabBar {
 extension SSCustomTabBar {
     
     func setupTabBar() {
+        guard !willDesappear else {
+            return
+        }
         self.isTranslucent = true
         self.backgroundColor = UIColor.clear
         self.backgroundImage = UIImage()
