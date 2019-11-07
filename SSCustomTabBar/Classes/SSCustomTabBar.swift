@@ -10,8 +10,7 @@ import UIKit
 
 public class SSCustomTabBar: UITabBar {
     
-    var willDesappear = false
-    /// Fill color of back wave layer
+     /// Fill color of back wave layer
     @IBInspectable var layerFillColor: UIColor {
         get {
             return kLayerFillColor
@@ -71,6 +70,7 @@ public class SSCustomTabBar: UITabBar {
             self.layer.shadowOffset = newValue
         }
     }
+    var upAnimationPoint: CGFloat = 10
     
     private var kLayerFillColor: UIColor = UIColor.blue
     private var displayLink: CADisplayLink!
@@ -84,9 +84,17 @@ public class SSCustomTabBar: UITabBar {
     var animating = false {
         didSet {
             self.isUserInteractionEnabled = !animating
-            self.displayLink?.isPaused = !animating
+            
+            guard let displayLink = self.displayLink else {
+                setDisplayLink()
+                self.displayLink?.isPaused = !animating
+                return
+            }
+            displayLink.isPaused = !animating
         }
     }
+    
+    
     
     /// Controll point of wave
     
@@ -135,7 +143,22 @@ public class SSCustomTabBar: UITabBar {
             rightPoint4.backgroundColor = .clear
         }
     }
-    
+    var canCorrectPositioning = false
+    public override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        if !animating, let selectedItem = self.selectedItem, canCorrectPositioning {
+            let orderedTabBarItemViews: [UIView] = {
+                let interactionViews = self.subviews.filter({ $0 is UIControl })
+                return interactionViews.sorted(by: { $0.frame.minX < $1.frame.minX })
+            }()
+            let view = orderedTabBarItemViews[ selectedItem.tag]
+            if view.frame.origin.y > 0  {
+                view.frame.origin.y -= upAnimationPoint
+            }
+        }
+        
+    }
     
     /// Draws the receiver’s image within the passed-in rectangle.
     ///
@@ -144,6 +167,13 @@ public class SSCustomTabBar: UITabBar {
         super.draw(rect)
         self.setupTabBar()
     }
+    
+    private func setDisplayLink() {
+        self.displayLink = CADisplayLink(target: self, selector: #selector(updateShapeLayer))
+        self.displayLink?.add(to: RunLoop.main, forMode: RunLoop.Mode.default)
+        self.displayLink?.isPaused = true
+        
+    }
 }
 
 
@@ -151,9 +181,7 @@ public class SSCustomTabBar: UITabBar {
 extension SSCustomTabBar {
     
     func setupTabBar() {
-        guard !willDesappear else {
-            return
-        }
+
         self.isTranslucent = true
         self.backgroundColor = UIColor.clear
         self.backgroundImage = UIImage()
@@ -165,6 +193,7 @@ extension SSCustomTabBar {
         self.layer.shadowRadius = shadowRadius
         self.layer.shadowColor = shadowColor.cgColor
         self.layer.shadowOpacity = 1.0
+      
         
         self.addSubview(leftPoint4)
         self.addSubview(leftPoint3)
@@ -175,10 +204,7 @@ extension SSCustomTabBar {
         self.addSubview(rightPoint1)
         self.addSubview(rightPoint2)
         self.addSubview(rightPoint4)
-        self.displayLink = CADisplayLink(target: self, selector: #selector(updateShapeLayer))
-        self.displayLink?.add(to: RunLoop.main, forMode: RunLoop.Mode.default)
-        self.displayLink?.isPaused = true
-        
+
         tabBarShapeLayer.frame = CGRect(x: 0.0, y: 0, width: self.bounds.width, height: self.bounds.height)
         tabBarShapeLayer.actions = ["position" : NSNull(), "bounds" : NSNull(), "path" : NSNull()]
         tabBarShapeLayer.fillColor = kLayerFillColor.cgColor
@@ -192,6 +218,10 @@ extension SSCustomTabBar {
             self.updateShapeLayer()
         }
     }
+    
+    
+    
+
 }
 
 
@@ -200,7 +230,7 @@ extension SSCustomTabBar {
 extension SSCustomTabBar {
     
     func setDefaultlayoutControlPoints(waveHeight: CGFloat, locationX: CGFloat) {
-        
+
         let width = (UIScreen.main.bounds.width/CGFloat(self.items?.count ?? 0))
         leftPoint4.center = CGPoint(x: 0, y: minimalY+minimalHeight)
         rightPoint4.center = CGPoint(x: self.bounds.width, y: minimalY+minimalHeight)

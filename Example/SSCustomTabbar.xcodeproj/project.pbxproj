@@ -15,6 +15,7 @@
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 		AD1C9B1102F2E2FEB3E5C231 /* Pods_SSCustomTabbar_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F3F55EFEC14FF9722223CA7 /* Pods_SSCustomTabbar_Example.framework */; };
+		C9F52AA9237450AF000DAB69 /* ViewControllerBack.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F52AA8237450AF000DAB69 /* ViewControllerBack.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,7 @@
 		61ACB4CCF67299FE1B56AEE5 /* Pods-SSCustomTabbar_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SSCustomTabbar_Tests.debug.xcconfig"; path = "Target Support Files/Pods-SSCustomTabbar_Tests/Pods-SSCustomTabbar_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		80721E5B593C880EED0D1D74 /* Pods-SSCustomTabbar_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SSCustomTabbar_Tests.release.xcconfig"; path = "Target Support Files/Pods-SSCustomTabbar_Tests/Pods-SSCustomTabbar_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		A8D8EC142E0AFE3676A30E8B /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		C9F52AA8237450AF000DAB69 /* ViewControllerBack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerBack.swift; sourceTree = "<group>"; };
 		FC0DEFBF40CA53EDF2F046CC /* SSCustomTabbar.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = SSCustomTabbar.podspec; path = ../SSCustomTabbar.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 /* End PBXFileReference section */
 
@@ -95,6 +97,7 @@
 			children = (
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
+				C9F52AA8237450AF000DAB69 /* ViewControllerBack.swift */,
 				0C7FCB8F224E781C00C3843A /* Main.storyboard */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
@@ -212,12 +215,12 @@
 				TargetAttributes = {
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
-						DevelopmentTeam = Y98X8JAPH6;
+						DevelopmentTeam = CH687DDWFY;
 						LastSwiftMigration = 1020;
 					};
 					607FACE41AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
-						DevelopmentTeam = Y98X8JAPH6;
+						DevelopmentTeam = CH687DDWFY;
 						LastSwiftMigration = 1020;
 						TestTargetID = 607FACCF1AFB9204008FA782;
 					};
@@ -333,6 +336,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9F52AA9237450AF000DAB69 /* ViewControllerBack.swift in Sources */,
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 			);
@@ -476,7 +480,7 @@
 			baseConfigurationReference = 1D0189F656393508E5F3C13D /* Pods-SSCustomTabbar_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = Y98X8JAPH6;
+				DEVELOPMENT_TEAM = CH687DDWFY;
 				INFOPLIST_FILE = SSCustomTabbar/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -492,7 +496,7 @@
 			baseConfigurationReference = 0EC9C98801FA701033E68CA8 /* Pods-SSCustomTabbar_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = Y98X8JAPH6;
+				DEVELOPMENT_TEAM = CH687DDWFY;
 				INFOPLIST_FILE = SSCustomTabbar/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -507,7 +511,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 61ACB4CCF67299FE1B56AEE5 /* Pods-SSCustomTabbar_Tests.debug.xcconfig */;
 			buildSettings = {
-				DEVELOPMENT_TEAM = Y98X8JAPH6;
+				DEVELOPMENT_TEAM = CH687DDWFY;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -529,7 +533,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 80721E5B593C880EED0D1D74 /* Pods-SSCustomTabbar_Tests.release.xcconfig */;
 			buildSettings = {
-				DEVELOPMENT_TEAM = Y98X8JAPH6;
+				DEVELOPMENT_TEAM = CH687DDWFY;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",

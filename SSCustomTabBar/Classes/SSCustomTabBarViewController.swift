@@ -32,6 +32,7 @@ open class SSCustomTabBarViewController: UITabBarController {
         }
         set{
             self.kUpAnimationPoint = newValue
+            (self.tabBar as? SSCustomTabBar)?.upAnimationPoint = kUpAnimationPoint
         }
     }
     
@@ -39,11 +40,19 @@ open class SSCustomTabBarViewController: UITabBarController {
     
     private var kUpAnimationPoint: CGFloat = 20
     
-    private var priviousSelectedIndex: Int = defaultIndexValue
+    private var previousSelectedIndex: Int = defaultIndexValue
     
     override open func viewDidLoad() {
         super.viewDidLoad()
-        
+        var i = 0
+        guard let items = tabBar.items   else {
+            return
+        }
+        for item in items {
+            item.tag = i
+            i = i + 1
+        }
+        (self.tabBar as? SSCustomTabBar)?.upAnimationPoint = kUpAnimationPoint
         // Do any additional setup after loading the view.
     }
     
@@ -53,52 +62,16 @@ open class SSCustomTabBarViewController: UITabBarController {
     /// - Parameter animated: variable for namiation
     override public func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        if self.priviousSelectedIndex == defaultIndexValue {
+        if self.previousSelectedIndex == defaultIndexValue {
             if let item = self.tabBar.selectedItem {
                 self.tabBar(self.tabBar, didSelect: item)
-                self.removeObserver()
-                self.setObserver()
+               
             }
         }
+        (self.tabBar as? SSCustomTabBar)?.canCorrectPositioning = true
     }
-    open override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        if let uSelf = self.tabBar as? SSCustomTabBar {
-            uSelf.willDesappear = true
-        }
-             
-    }
-    open override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        applicationDidBecomeActive()
-    }
-    /// setObserver
-    func setObserver() {
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(applicationDidBecomeActive), name: UIApplication.didBecomeActiveNotification, object: nil)
-    }
-    
-    
-    /// removeObserver
-    func removeObserver() {
-        NotificationCenter.default.removeObserver(self,
-                                                  name:UIApplication.didBecomeActiveNotification, object: nil)
-    }
-    
-    
-    /// call when application become active
-    @objc func applicationDidBecomeActive() {
-        DispatchQueue.main.async {
-            let view = self.getUpView(index: self.selectedIndex)
-            if view.frame.origin.y > 0 {
-                view.frame.origin.y -= self.kUpAnimationPoint
-            }
-        }
-    }
-    
-    deinit {
-        self.removeObserver()
-    }
+
+   
 }
 
 
@@ -131,7 +104,7 @@ extension SSCustomTabBarViewController {
     ///   - item: The tab bar item that was selected.
     override public func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
         
-        if let uSelf = self.tabBar as? SSCustomTabBar, let items = uSelf.items, let index = items.firstIndex(of: item), index != self.priviousSelectedIndex {
+        if let uSelf = self.tabBar as? SSCustomTabBar, let items = uSelf.items, let index = items.firstIndex(of: item), index != self.previousSelectedIndex {
             
             let width = UIScreen.main.bounds.width/CGFloat(items.count)
             let changeValue = (width*CGFloat(index+1))-(width/2)
@@ -146,16 +119,19 @@ extension SSCustomTabBarViewController {
                 let objectIndex = orderedTabBarItemViews.firstIndex(of: objectView)
                 if index ==  objectIndex {
                     print(index)
-                }else if  objectIndex == priviousSelectedIndex {
+                }else if  objectIndex == previousSelectedIndex {
                     UIView.animate(withDuration: 0.5, delay: 0.0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.0, options: .curveEaseInOut, animations: {
                         objectView.frame = CGRect(x: objectView.frame.origin.x, y: objectView.frame.origin.y + self.kUpAnimationPoint, width: objectView.frame.width, height: objectView.frame.height)
                     }, completion: nil)
                 }
             })
-            self.priviousSelectedIndex = index
+            self.previousSelectedIndex = index
             performSpringAnimation(for: orderedTabBarItemViews[index], changeValue: changeValue)
         }
         
+    }
+    open override func tabBar(_ tabBar: UITabBar, didEndCustomizing items: [UITabBarItem], changed: Bool) {
+        print("didEndCustomizing")
     }
     
     
@@ -169,6 +145,10 @@ extension SSCustomTabBarViewController {
             return interactionViews.sorted(by: { $0.frame.minX < $1.frame.minX })
         }()
         return orderedTabBarItemViews[index]
+        let view = self.getUpView(index: self.selectedIndex)
+                   if view.frame.origin.y > 0 {
+                       view.frame.origin.y -= self.kUpAnimationPoint
+                   }
     }
     
     
