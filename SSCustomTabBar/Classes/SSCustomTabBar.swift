@@ -145,9 +145,12 @@ public class SSCustomTabBar: UITabBar {
     }
     var canCorrectPositioning = false
     public override func layoutSubviews() {
-        super.layoutSubviews()
         
-        if !animating, let selectedItem = self.selectedItem, canCorrectPositioning {
+        guard !animating else {
+            return
+        }
+        super.layoutSubviews()
+        if  let selectedItem = self.selectedItem, canCorrectPositioning {
             let orderedTabBarItemViews: [UIView] = {
                 let interactionViews = self.subviews.filter({ $0 is UIControl })
                 return interactionViews.sorted(by: { $0.frame.minX < $1.frame.minX })

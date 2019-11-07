@@ -50,30 +50,30 @@
 		402AF2D24E64536FFD4D2780EC2EA3B5 /* Pods-SSCustomTabbar_Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SSCustomTabbar_Example-Info.plist"; sourceTree = "<group>"; };
 		436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		439C96106A69ECD29AB89894B1B43113 /* Pods-SSCustomTabbar_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-SSCustomTabbar_Example-umbrella.h"; sourceTree = "<group>"; };
-		4D0164A2DDE6BC5598D4188BAE03A992 /* SSCustomTabbar.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = SSCustomTabbar.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		616446A69B3FDF0D544AA9E96F211BB5 /* Pods_SSCustomTabbar_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SSCustomTabbar_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4D0164A2DDE6BC5598D4188BAE03A992 /* SSCustomTabbar.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = SSCustomTabbar.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		616446A69B3FDF0D544AA9E96F211BB5 /* Pods_SSCustomTabbar_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_SSCustomTabbar_Example.framework; path = "Pods-SSCustomTabbar_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		623EB96B342C85EA3C93AFE1DA34C8FB /* Pods-SSCustomTabbar_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-SSCustomTabbar_Example.modulemap"; sourceTree = "<group>"; };
 		68C77BE5AB4A98CD6FC3CC8CE0BC0C12 /* SSCustomTabBar.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SSCustomTabBar.swift; path = SSCustomTabBar/Classes/SSCustomTabBar.swift; sourceTree = "<group>"; };
 		6F9F9296D33BB3E4F4779BD24D352620 /* SSCustomTabBarViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SSCustomTabBarViewController.swift; path = SSCustomTabBar/Classes/SSCustomTabBarViewController.swift; sourceTree = "<group>"; };
 		6FFDD9BC042D6AB511196A6D951A2CD2 /* SSCustomTabbar-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SSCustomTabbar-prefix.pch"; sourceTree = "<group>"; };
-		7BD11CA313B13E434C94C9C38F53A34C /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		7BD11CA313B13E434C94C9C38F53A34C /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
 		8B7FB6A1FB20278B8BFBB33DA52A7D2A /* Pods-SSCustomTabbar_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SSCustomTabbar_Tests-Info.plist"; sourceTree = "<group>"; };
 		8F48EA6F5282A8AAF26808610CFEB728 /* Pods-SSCustomTabbar_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SSCustomTabbar_Example-frameworks.sh"; sourceTree = "<group>"; };
 		970DA1019A0BE350590B88D85A5F292D /* SSCustomTabbar-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SSCustomTabbar-umbrella.h"; sourceTree = "<group>"; };
 		99331EA7304B9C656E1EFCD6D7907A69 /* Pods-SSCustomTabbar_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-SSCustomTabbar_Tests-umbrella.h"; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9DE73F952D55791E924ACC5ECD8AB5FE /* SSCustomTabbar-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SSCustomTabbar-dummy.m"; sourceTree = "<group>"; };
 		AF5D39AF5CC89874601B31847FF5FE38 /* Pods-SSCustomTabbar_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SSCustomTabbar_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		AF780B59199CB7438C6D25D9004FE5BB /* SSCustomTabbar.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SSCustomTabbar.modulemap; sourceTree = "<group>"; };
 		B232FF61468F97F937CF720DF50DB934 /* Pods-SSCustomTabbar_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SSCustomTabbar_Example.release.xcconfig"; sourceTree = "<group>"; };
 		B93385B9E28534B3DB5E36B54221B1DB /* Pods-SSCustomTabbar_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SSCustomTabbar_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		BBD9402A44AFFA17DEC2AB27EAE84FD3 /* Pods-SSCustomTabbar_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-SSCustomTabbar_Tests-dummy.m"; sourceTree = "<group>"; };
-		CCD3D61FFB9FA21D87EE945CDCB89030 /* SSCustomTabbar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SSCustomTabbar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CCD3D61FFB9FA21D87EE945CDCB89030 /* SSCustomTabbar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SSCustomTabbar.framework; path = SSCustomTabbar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA948826AE63D419471C113BC71F1508 /* Pods-SSCustomTabbar_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-SSCustomTabbar_Tests.modulemap"; sourceTree = "<group>"; };
-		E0639AF39517095E5AECF3D521B45209 /* Pods_SSCustomTabbar_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SSCustomTabbar_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E0639AF39517095E5AECF3D521B45209 /* Pods_SSCustomTabbar_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_SSCustomTabbar_Tests.framework; path = "Pods-SSCustomTabbar_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2FB3B1595472826972D32585D2AB6BE /* UIView+Extenstion.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIView+Extenstion.swift"; path = "SSCustomTabBar/Classes/UIView+Extenstion.swift"; sourceTree = "<group>"; };
 		F66950CE8786E09F200A6CEC880DC996 /* Pods-SSCustomTabbar_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-SSCustomTabbar_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
-		F805CD753440B6DA7D64E2363CFC9044 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		F805CD753440B6DA7D64E2363CFC9044 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
 		F9EEEF360374FDFE85F9D1C62069DA39 /* Pods-SSCustomTabbar_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-SSCustomTabbar_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -325,11 +325,6 @@
 			attributes = {
 				LastSwiftUpdateCheck = 1100;
 				LastUpgradeCheck = 1100;
-				TargetAttributes = {
-					A60B3B74BBB1D4420DD757F90CF7CCCC = {
-						LastSwiftMigration = 1100;
-					};
-				};
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -473,7 +468,8 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 5.0;
 				SYMROOT = "${SRCROOT}/../build";
 			};
@@ -519,7 +515,6 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
-				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -543,7 +538,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -725,7 +719,6 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
-				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -749,8 +742,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
