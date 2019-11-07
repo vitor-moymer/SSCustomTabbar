@@ -68,7 +68,7 @@ open class SSCustomTabBarViewController: UITabBarController {
                
             }
         }
-        (self.tabBar as? SSCustomTabBar)?.canCorrectPositioning = true
+        
     }
 
    
@@ -130,26 +130,6 @@ extension SSCustomTabBarViewController {
         }
         
     }
-    open override func tabBar(_ tabBar: UITabBar, didEndCustomizing items: [UITabBarItem], changed: Bool) {
-        print("didEndCustomizing")
-    }
-    
-    
-    /// Get specific view from
-    ///
-    /// - Parameter index: view index
-    /// - Returns: specific view
-    func getUpView(index: Int) -> UIView {
-        let orderedTabBarItemViews: [UIView] = {
-            let interactionViews = tabBar.subviews.filter({ $0 is UIControl })
-            return interactionViews.sorted(by: { $0.frame.minX < $1.frame.minX })
-        }()
-        return orderedTabBarItemViews[index]
-        let view = self.getUpView(index: self.selectedIndex)
-                   if view.frame.origin.y > 0 {
-                       view.frame.origin.y -= self.kUpAnimationPoint
-                   }
-    }
     
     
     /// Perform Animation
@@ -168,7 +148,9 @@ extension SSCustomTabBarViewController {
             })
             UIView.animate(withDuration: 0.5, delay: 0.0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.0, options: .curveEaseInOut, animations: {
                 view.frame = CGRect(x: view.frame.origin.x, y: view.frame.origin.y - self.kUpAnimationPoint, width: view.frame.width, height: view.frame.height)
-            }, completion: nil)
+            }, completion: { _ in
+                (self.tabBar as? SSCustomTabBar)?.canCorrectPositioning = true
+            })
         }
     }
     
