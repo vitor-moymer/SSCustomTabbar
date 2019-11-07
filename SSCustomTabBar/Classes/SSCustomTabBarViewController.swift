@@ -82,7 +82,7 @@ extension SSCustomTabBarViewController {
     }
     
     func changeTabBarHeight() {
-        guard var height = kBarHeight else { return }
+        guard var height = kBarHeight, height > 0 else { return }
                height += self.view.safeAreaInsets.bottom
                var tabBarFrame = self.tabBar.frame
                tabBarFrame.size.height = height
