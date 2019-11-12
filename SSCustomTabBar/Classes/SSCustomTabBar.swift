@@ -84,7 +84,6 @@ public class SSCustomTabBar: UITabBar {
     var animating = false {
         didSet {
             self.isUserInteractionEnabled = !animating
-            
             guard let displayLink = self.displayLink else {
                 setDisplayLink()
                 self.displayLink?.isPaused = !animating
@@ -94,10 +93,7 @@ public class SSCustomTabBar: UITabBar {
         }
     }
     
-    
-    
     /// Controll point of wave
-    
     private var leftPoint4 = UIView(frame: CGRect(x: 0.0, y: 0.0, width: 3.0, height: 3.0)) {
         didSet {
             leftPoint4.backgroundColor = .clear
@@ -173,7 +169,8 @@ public class SSCustomTabBar: UITabBar {
     
     private func setDisplayLink() {
         self.displayLink = CADisplayLink(target: self, selector: #selector(updateShapeLayer))
-        self.displayLink?.add(to: RunLoop.main, forMode: RunLoop.Mode.default)
+        self.displayLink?.add(to: RunLoop.main, forMode: RunLoop.Mode.common)
+        //self.displayLink?.frameInterval = 2
         self.displayLink?.isPaused = true
         
     }
@@ -221,9 +218,6 @@ extension SSCustomTabBar {
             self.updateShapeLayer()
         }
     }
-    
-    
-    
 
 }
 
