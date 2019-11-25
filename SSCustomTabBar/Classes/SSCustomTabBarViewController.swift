@@ -143,13 +143,19 @@ extension SSCustomTabBarViewController {
             UIView.animate(withDuration: 0.3, delay: 0.0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.0, options: [], animations: { () -> Void in
                 uSelf.setDefaultlayoutControlPoints(waveHeight: uSelf.minimalHeight, locationX: changeValue)
                 
-            }, completion: { _ in
-                uSelf.animating = false
+            }, completion: { s in
+                if s {
+                     uSelf.animating = false
+                }
+               
             })
             UIView.animate(withDuration: 0.3, delay: 0.0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.0, options: .curveEaseInOut, animations: {
                 view.frame = CGRect(x: view.frame.origin.x, y: view.frame.origin.y - self.kUpAnimationPoint, width: view.frame.width, height: view.frame.height)
-            }, completion: { _ in
-                (self.tabBar as? SSCustomTabBar)?.canCorrectPositioning = true
+            }, completion: { s in
+                if s {
+                     (self.tabBar as? SSCustomTabBar)?.canCorrectPositioning = true
+                }
+               
             })
         }
     }
