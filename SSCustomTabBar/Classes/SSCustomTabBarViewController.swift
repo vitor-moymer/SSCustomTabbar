@@ -109,7 +109,7 @@ extension SSCustomTabBarViewController {
             let width = UIScreen.main.bounds.width/CGFloat(items.count)
             let changeValue = (width*CGFloat(index+1))-(width/2)
             uSelf.animating = true
-            
+             
             let orderedTabBarItemViews: [UIView] = {
                 let interactionViews = tabBar.subviews.filter({ $0 is UIControl })
                 return interactionViews.sorted(by: { $0.frame.minX < $1.frame.minX })
@@ -125,8 +125,11 @@ extension SSCustomTabBarViewController {
                     }, completion: nil)
                 }
             })
-            self.previousSelectedIndex = index
-            performSpringAnimation(for: orderedTabBarItemViews[index], changeValue: changeValue)
+            DispatchQueue.main.async{ [weak self] in
+                self?.previousSelectedIndex = index
+                self?.performSpringAnimation(for: orderedTabBarItemViews[index], changeValue: changeValue)
+            }
+            
         }
         
     }
@@ -145,7 +148,9 @@ extension SSCustomTabBarViewController {
                 
             }, completion: { s in
                 if s {
-                     //uSelf.animating = false
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
+                           uSelf.animating = false
+                    }
                 }
                
             })

@@ -205,7 +205,6 @@ extension SSCustomTabBar {
         self.addSubview(rightPoint2)
         self.addSubview(rightPoint4)
 
-        setDisplayLink()
         
         tabBarShapeLayer.frame = CGRect(x: 0.0, y: 0, width: self.bounds.width, height: self.bounds.height)
         tabBarShapeLayer.actions = ["position" : NSNull(), "bounds" : NSNull(), "path" : NSNull()]
