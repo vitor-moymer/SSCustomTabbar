@@ -84,12 +84,10 @@ public class SSCustomTabBar: UITabBar {
     var animating = false {
         didSet {
             self.isUserInteractionEnabled = !animating
-            guard let displayLink = self.displayLink else {
-                setDisplayLink()
-                self.displayLink?.isPaused = !animating
-                return
+            setDisplayLink()
+            if let displayLink = self.displayLink  {
+                displayLink.isPaused = !animating
             }
-            displayLink.isPaused = !animating
         }
     }
     
@@ -168,10 +166,12 @@ public class SSCustomTabBar: UITabBar {
     }
     
     private func setDisplayLink() {
-        self.displayLink = CADisplayLink(target: self, selector: #selector(updateShapeLayer))
-        self.displayLink?.add(to: RunLoop.main, forMode: RunLoop.Mode.common)
-        //self.displayLink?.frameInterval = 2
-        self.displayLink?.isPaused = true
+        guard let _ = self.displayLink else {
+            self.displayLink = CADisplayLink(target: self, selector: #selector(updateShapeLayer))
+            self.displayLink?.add(to: RunLoop.main, forMode: RunLoop.Mode.common)
+            self.displayLink?.isPaused = true
+            return
+        }
         
     }
 }
@@ -205,6 +205,8 @@ extension SSCustomTabBar {
         self.addSubview(rightPoint2)
         self.addSubview(rightPoint4)
 
+        setDisplayLink()
+        
         tabBarShapeLayer.frame = CGRect(x: 0.0, y: 0, width: self.bounds.width, height: self.bounds.height)
         tabBarShapeLayer.actions = ["position" : NSNull(), "bounds" : NSNull(), "path" : NSNull()]
         tabBarShapeLayer.fillColor = kLayerFillColor.cgColor
