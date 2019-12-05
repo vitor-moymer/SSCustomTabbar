@@ -14,7 +14,6 @@ private let defaultIndexValue = -1
 
 open class SSCustomTabBarViewController: UITabBarController {
     
-    
     /// Tabbar height
     @IBInspectable var barHeight: CGFloat {
         get{
@@ -44,18 +43,9 @@ open class SSCustomTabBarViewController: UITabBarController {
     
     override open func viewDidLoad() {
         super.viewDidLoad()
-        var i = 0
-        guard let items = tabBar.items   else {
-            return
-        }
-        for item in items {
-            item.tag = i
-            i = i + 1
-        }
         (self.tabBar as? SSCustomTabBar)?.upAnimationPoint = kUpAnimationPoint
         // Do any additional setup after loading the view.
     }
-    
     
     /// Notifies the view controller that its view was added to a view hierarchy.
     ///
@@ -65,13 +55,20 @@ open class SSCustomTabBarViewController: UITabBarController {
         if self.previousSelectedIndex == defaultIndexValue {
             if let item = self.tabBar.selectedItem {
                 self.tabBar(self.tabBar, didSelect: item)
-               
             }
         }
-        
     }
-
-   
+    open override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        guard let items = tabBar.items   else {
+            return
+        }
+        var i = 0
+        for item in items {
+            item.tag = i
+            i +=  1
+        }
+    }
 }
 
 
@@ -83,12 +80,12 @@ extension SSCustomTabBarViewController {
     
     func changeTabBarHeight() {
         guard var height = kBarHeight, height > 0 else { return }
-               height += self.view.safeAreaInsets.bottom
-               var tabBarFrame = self.tabBar.frame
-               tabBarFrame.size.height = height
-               tabBarFrame.origin.y = UIScreen.main.bounds.height - height
-               self.tabBar.frame = tabBarFrame
-               self.tabBar.clipsToBounds = false
+        height += self.view.safeAreaInsets.bottom
+        var tabBarFrame = self.tabBar.frame
+        tabBarFrame.size.height = height
+        tabBarFrame.origin.y = UIScreen.main.bounds.height - height
+        self.tabBar.frame = tabBarFrame
+        self.tabBar.clipsToBounds = false
     }
 }
 
