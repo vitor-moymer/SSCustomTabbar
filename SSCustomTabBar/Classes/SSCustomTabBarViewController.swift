@@ -122,9 +122,10 @@ extension SSCustomTabBarViewController {
                     }, completion: nil)
                 }
             })
-            self.previousSelectedIndex = index
-            self.performSpringAnimation(for: orderedTabBarItemViews[index], changeValue: changeValue)
-
+            DispatchQueue.main.async{ [weak self] in
+                self?.previousSelectedIndex = index
+                self?.performSpringAnimation(for: orderedTabBarItemViews[index], changeValue: changeValue)
+            }
             
         }
         
