@@ -122,10 +122,9 @@ extension SSCustomTabBarViewController {
                     }, completion: nil)
                 }
             })
-            DispatchQueue.main.async{ [weak self] in
-                self?.previousSelectedIndex = index
-                self?.performSpringAnimation(for: orderedTabBarItemViews[index], changeValue: changeValue)
-            }
+            self.previousSelectedIndex = index
+            self.performSpringAnimation(for: orderedTabBarItemViews[index], changeValue: changeValue)
+
             
         }
         
@@ -145,7 +144,7 @@ extension SSCustomTabBarViewController {
                 
             }, completion: { s in
                 if s {
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
                            uSelf.animating = false
                     }
                 }
