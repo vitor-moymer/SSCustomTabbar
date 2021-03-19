@@ -159,7 +159,7 @@ public class SSCustomTabBar: UITabBar {
             }()
             let view = orderedTabBarItemViews[ selectedItem.tag]
             if view.frame.origin.y > 0  {
-                view.transform = CGAffineTransform.init(scaleX: 1.2, y: 1.2).translatedBy(x: 0, y: -self.upAnimationPoint)
+                view.frame.origin.y -= upAnimationPoint
             }
         }
         
