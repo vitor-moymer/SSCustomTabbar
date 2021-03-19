@@ -10,6 +10,7 @@ import UIKit
 
 public class SSCustomTabBar: UITabBar {
     
+    
      /// Fill color of back wave layer
     @IBInspectable var layerFillColor: UIColor {
         get {
@@ -72,10 +73,16 @@ public class SSCustomTabBar: UITabBar {
     }
     var upAnimationPoint: CGFloat = 10
     
+    
+    public override func sizeThatFits(_ size: CGSize) -> CGSize {
+             var size = super.sizeThatFits(size)
+             size.height = 80
+             return size
+        }
     private var kLayerFillColor: UIColor = UIColor.blue
     private var displayLink: CADisplayLink!
     private let tabBarShapeLayer = CAShapeLayer()
-    internal var minimalHeight: CGFloat = 30
+    internal var minimalHeight: CGFloat = 20
     private var minimalY: CGFloat {
         get {
             return -minimalHeight
