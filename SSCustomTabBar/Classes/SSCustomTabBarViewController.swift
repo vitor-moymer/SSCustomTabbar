@@ -118,7 +118,10 @@ extension SSCustomTabBarViewController {
                     print(index)
                 }else if  objectIndex == previousSelectedIndex {
                     UIView.animate(withDuration: 0.3, delay: 0.0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.0, options: .curveEaseInOut, animations: {
-                        objectView.frame = CGRect(x: objectView.frame.origin.x, y: objectView.frame.origin.y + self.kUpAnimationPoint, width: objectView.frame.width, height: objectView.frame.height)
+                        objectView.transform = CGAffineTransform.identity
+                        /*
+                        objectView.frame = CGRect(x: objectView.frame.origin.x, y: objectView.frame.origin.y + self.kUpAnimationPoint, width: objectView.frame.width, height: objectView.frame.height)*/
+                        
                     }, completion: nil)
                 }
             })
@@ -152,7 +155,11 @@ extension SSCustomTabBarViewController {
                
             })
             UIView.animate(withDuration: 0.3, delay: 0.0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.0, options: .curveEaseInOut, animations: {
+                
+                view.transform = CGAffineTransform.init(scaleX: 1.2, y: 1.2)
+                /*
                 view.frame = CGRect(x: view.frame.origin.x, y: view.frame.origin.y - self.kUpAnimationPoint, width: view.frame.width, height: view.frame.height)
+                 */
             }, completion: { s in
                 if s {
                      (self.tabBar as? SSCustomTabBar)?.canCorrectPositioning = true
