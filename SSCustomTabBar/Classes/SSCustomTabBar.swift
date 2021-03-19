@@ -71,7 +71,7 @@ public class SSCustomTabBar: UITabBar {
             self.layer.shadowOffset = newValue
         }
     }
-    var upAnimationPoint: CGFloat = 10
+    var upAnimationPoint: CGFloat = 8
     
     
     public override func sizeThatFits(_ size: CGSize) -> CGSize {
@@ -151,6 +151,7 @@ public class SSCustomTabBar: UITabBar {
             return
         }
         super.layoutSubviews()
+        /*
         if  let selectedItem = self.selectedItem, canCorrectPositioning {
             let orderedTabBarItemViews: [UIView] = {
                 let interactionViews = self.subviews.filter({ $0 is UIControl })
@@ -160,7 +161,7 @@ public class SSCustomTabBar: UITabBar {
             if view.frame.origin.y > 0  {
                 view.frame.origin.y -= upAnimationPoint
             }
-        }
+        }*/
         
     }
     

@@ -37,7 +37,7 @@ open class SSCustomTabBarViewController: UITabBarController {
     
     private var kBarHeight: CGFloat?
     
-    private var kUpAnimationPoint: CGFloat = 20
+    private var kUpAnimationPoint: CGFloat = 8
     
     private var previousSelectedIndex: Int = defaultIndexValue
     
@@ -156,7 +156,7 @@ extension SSCustomTabBarViewController {
             })
             UIView.animate(withDuration: 0.3, delay: 0.0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.0, options: .curveEaseInOut, animations: {
                 
-                view.transform = CGAffineTransform.init(scaleX: 1.2, y: 1.2)
+                view.transform = CGAffineTransform.init(scaleX: 1.2, y: 1.2).translatedBy(x: 0, y: -self.kUpAnimationPoint)
                 /*
                 view.frame = CGRect(x: view.frame.origin.x, y: view.frame.origin.y - self.kUpAnimationPoint, width: view.frame.width, height: view.frame.height)
                  */
