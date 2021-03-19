@@ -37,7 +37,7 @@ open class SSCustomTabBarViewController: UITabBarController {
     
     private var kBarHeight: CGFloat?
     
-    private var kUpAnimationPoint: CGFloat = 8
+    private var kUpAnimationPoint: CGFloat = 4
     
     private var previousSelectedIndex: Int = defaultIndexValue
     

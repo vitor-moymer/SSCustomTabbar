@@ -151,7 +151,7 @@ public class SSCustomTabBar: UITabBar {
             return
         }
         super.layoutSubviews()
-        /*
+        
         if  let selectedItem = self.selectedItem, canCorrectPositioning {
             let orderedTabBarItemViews: [UIView] = {
                 let interactionViews = self.subviews.filter({ $0 is UIControl })
@@ -159,9 +159,9 @@ public class SSCustomTabBar: UITabBar {
             }()
             let view = orderedTabBarItemViews[ selectedItem.tag]
             if view.frame.origin.y > 0  {
-                view.frame.origin.y -= upAnimationPoint
+                view.transform = CGAffineTransform.init(scaleX: 1.2, y: 1.2).translatedBy(x: 0, y: -self.upAnimationPoint)
             }
-        }*/
+        }
         
     }
     
