@@ -76,7 +76,7 @@ public class SSCustomTabBar: UITabBar {
     
     public override func sizeThatFits(_ size: CGSize) -> CGSize {
         var size = super.sizeThatFits(size)
-        size.height =  size.height - 8
+        size.height =  size.height - 6
         return size
     }
     private var kLayerFillColor: UIColor = UIColor.blue
